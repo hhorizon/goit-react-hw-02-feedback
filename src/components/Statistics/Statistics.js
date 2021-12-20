@@ -1,12 +1,15 @@
 import PropTypes from "prop-types";
 import styled from 'styled-components';
+import Notification from "../Notification/Notification";
 
 
 const Statistics = ({ good, neutral, bad, total, positivePercentage }) => {
     return (
         <>
             {total === 0 ? (
-                <StatisticsMess>No feedback given</StatisticsMess>
+                <Notification
+                    message="There is no feedback"    
+                />
             ) : (
                 <StatisticsList>
                     <StatisticsItem className="stat-item">Good: {good}</StatisticsItem>
@@ -43,9 +46,4 @@ const StatisticsItem = styled.li`
     &:not(:last-child) {
         margin-bottom: 3px;
     }
-`
-
-const StatisticsMess = styled.p`
-    font-weight: 600;
-    font-size: 18px; 
 `
